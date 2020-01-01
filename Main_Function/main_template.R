@@ -39,7 +39,7 @@ source("Collapse_Data.R")
 # for (adv_id in 1:9)
 # {
 tryCatch({
-source("Clean_Data_0923.R")
+source("Clean_Data.R")
 age_grids=work_grid*(range.y[2]-range.y[1]+0.0002)+range.y[1]-0.0001
 ##Prior Parameter, if we assume the causal parameters have a MGP
 tau_mgp=1
