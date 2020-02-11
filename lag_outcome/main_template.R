@@ -25,20 +25,20 @@ if(length(args)==0){
 Grid.num=40
 work_grid=seq(0,1,length=Grid.num)
 
-m=1
-adv_id=10
-f=1
-age.truncate.female=17
-l_m=11;K_m=7
-l_y=11;K_y=7
-lag_outcome=1
-#MCMC Time
+# m=1
+# adv_id=10
+# f=1
+# age.truncate.female=17
+# l_m=11;K_m=7
+# l_y=11;K_y=7
+# lag_outcome=1
+# #MCMC Time
 simu_time=20000;
 
 result_sum=NULL
 
 source("Collapse_Data.R")
-if (lag_outcome==1){
+if (lag_outcome>0){
 source("lag_outcome.R")
 }
 # for (adv_id in 1:9)
@@ -110,7 +110,12 @@ result_sum=rbind(result_sum,c(mean(mediator_effect_mean),
 })
 print(adverse.name[adv_id])
 #}
-setwd("Results/")
+if (lag_outcome==1){
+setwd("lag_mean_result/")
+  }
+if (lag_outcome==2){
+  setwd("lag_outcome_result/")
+}
 save(result_sum,mediator_effect_mean,mediator_effect_down,mediator_effect_up,
      gamma,indirect_process_mean,indirect_process_down,indirect_process_up,
      total_effect_mean,total_effect_down,total_effect_up,

@@ -73,11 +73,11 @@ covariate.index.dsi=c(
     "percent_days_cycling",
     # "percent_days_with_infant",
     "avg_density",
-    "avg_age",
-    "lag_gc"
+    "avg_age"
     #  "lag_gc_mean"
     #  "hydroyear"
   )
+  
 }else{  covariate.index.dsi=c(
 "n_adults"
   #  "hydroyear"
@@ -109,6 +109,16 @@ covariate.index.dsi=c(
     
   }
   
+}
+
+if (lag_outcome==1)
+{
+  covariate.index.dsi=c(covariate.index.dsi,"lag_gc_mean")
+}
+
+if (lag_outcome==2)
+{
+  covariate.index.dsi=c(covariate.index.dsi,"lag_gc")
 }
 
 
